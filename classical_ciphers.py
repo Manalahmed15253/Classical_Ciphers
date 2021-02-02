@@ -282,6 +282,7 @@ def main_files():
         key_list = key.split()
         map_object = map(int, key_list)
         key3 = list(map_object)
+        hill_output=open('Hill/hill_cipher_2x2.txt',"w")
     else:
         hill_input=open('Hill/hill_plain_3x3.txt',"r")
         f3=hill_input.read()
@@ -292,7 +293,7 @@ def main_files():
         key_list = key.split()
         map_object = map(int, key_list)
         key3 = list(map_object)
-    hill_output=open('Hill/hill_cipher.txt',"w")   
+        hill_output=open('Hill/hill_cipher_3x3.txt',"w")   
     for x in plaintext_list:
         #handling empty line error
         if len(x) == 0 :
@@ -300,7 +301,7 @@ def main_files():
         result=Hill_Cipher(x,key3)
         hill_output.write(result)
         hill_output.write("\n")   
-    hill_output.close() 
+    hill_output.close()
 
     #Vigenere_Cipher
     vigenere_input = open('Vigenere/vigenere_plain.txt',"r")
@@ -323,7 +324,7 @@ def main_files():
             #handling empty line error
             if len(x) == 0 :
                 continue
-            result=Vigenere_cipher(x, key4 , True)
+            result=Vigenere_Cipher(x, key4 , True)
             vigenere_output.write(result)
             vigenere_output.write("\n")
     vigenere_output.close()
@@ -395,7 +396,7 @@ def main_console_input():
             cipher_text=Vigenere_Cipher(plaintext, key, False)
             print("your ciphertext is: ",cipher_text)
         elif(mode == "true"):
-            cipher_text=Vigenere_cipher(x, key , True)
+            cipher_text=Vigenere_Cipher(plaintext, key , True)
             print("your ciphertext is: ",cipher_text)
         else:
             print("Error, See the screenshots for referencing ")
